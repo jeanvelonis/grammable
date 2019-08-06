@@ -5,15 +5,16 @@ FactoryBot.define do
 
   factory :user do
     sequence :email do |n|
-      { :email=>"dummyEmail#{n}@gmail.com" }
+      "dummyEmail1#{n}@gmail.com" 
     end
-    {:password=> "secretPassword" }
-    {:password_confirmation=> "secretPassword" }
+    password { "secretPassword" }
+    password_confirmation { "secretPassword" }
   end
 
   factory :gram do
-    {:message => "hello" }
+    message { "hello" }
     picture { fixture_file_upload(Rails.root.join('spec', 'fixtures', 'picture.png').to_s, 'image/png') }
+
     association :user
-  end
-end 
+  end 
+ end
